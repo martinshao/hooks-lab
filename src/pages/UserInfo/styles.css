@@ -1,0 +1,19 @@
+.user-wrapper {
+  margin: 20px;
+  width: 500px;
+  background-color: #ffffff;
+  flex: 1 1 100px;
+}
+
+.info-item {
+  display: flex;
+}
+
+.info-item span {
+  background-color: #f6f6f6;
+  margin: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  padding: 5px 0 5px 10px;
+}

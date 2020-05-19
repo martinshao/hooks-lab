@@ -1,6 +1,6 @@
 import React from 'react'
-import Switch from '@material-ui/core/Switch';
-import Button from '@material-ui/core/Button'
+import Switch from '@alicloud/console-components';
+import Button from '@alicloud/console-components'
 
 const noop = () => { }
 

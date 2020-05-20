@@ -3,6 +3,7 @@ const ADD = 'ADD'
 const INITIAL = 'INITIAL'
 const UPDATEQUERY = 'UPDATEQUERY'
 const ONLOADCHANGE = 'ONLOADCHANGE'
+const UPDATESTEP = 'UPDATESTEP'
 
 // action creators
 export const fetchInitial = payload => ({
@@ -28,7 +29,13 @@ export const updateQuery = payload => ({
   payload,
 })
 
+export const updateStep = payload => ({
+  type: UPDATESTEP,
+  payload,
+})
+
 export const reducer = (state, action) => {
+  console.info('reducer...', state, action)
   switch (action.type) {
     case INITIAL:
       return { ...state, ...action.payload };
@@ -38,6 +45,10 @@ export const reducer = (state, action) => {
       return { ...state, Query: action.payload };
     case ONLOADCHANGE:
       return { ...state, load: action.payload };
+    case UPDATESTEP:
+      return {
+        ...state,
+      }
     default:
       return state;
   }

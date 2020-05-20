@@ -1,11 +1,12 @@
 import React, { createContext, useReducer } from 'react'
 import { createSelector } from 'reselect'
-import { reducer, updateQuery } from './reducer'
+import { reducer, updateStep, updateQuery } from './reducer'
 
 export const ShopContext = createContext(null)
 
 const initialState = {
   shop: {
+    step: 100,
     taxPercent: 8,
     items: [
       { name: 'apple', price: 1, amount: 2 },
@@ -22,6 +23,7 @@ const initialState = {
 
 const shopItemsSelector = state => state.shop.items
 const taxPercentSelector = state => state.shop.taxPercent
+const stepSelector = state => state.shop.step
 
 const subtotalSelector = createSelector(
   shopItemsSelector,
@@ -49,12 +51,18 @@ function ShopProvider({ children }) {
     dispatch(updateQuery(value))
   }
 
+  const onChangeStep = (value) => {
+    dispatch(updateStep(value))
+  }
+
   const value = {
     addAmount,
+    onChangeStep,
     tax: taxSelector(state),
     total: totalSelector(state),
     item: shopItemsSelector(state),
     subTotal: subtotalSelector(state),
+    step: stepSelector(state),
   }
 
   return (

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Step from './Step'
 import Goods from './Goods'
 import { ShopContext } from '../ShopProvider'
 
@@ -11,6 +12,7 @@ function Shop() {
       <p>subTotal: {subTotal}</p>
       <p>total: {total}</p>
       <Goods />
+      <Step />
     </div>
   )
 }

@@ -4,11 +4,11 @@ import React from 'react'
 // import Toggle from '../../components/Toggle'
 // import TestSelector from '../../pages/TestSelector'
 // import ShopPage from '../../pages/ShopPage'
-import CalcDemo from '../../pages/CalcDemo'
+import RenderIfDemo from '../../pages/RenderIfDemo'
 
 function App() {
   return (
-    <CalcDemo />
+    <RenderIfDemo />
   )
 }
 

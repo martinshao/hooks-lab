@@ -4,11 +4,11 @@ import React from 'react'
 // import Toggle from '../../components/Toggle'
 // import TestSelector from '../../pages/TestSelector'
 // import ShopPage from '../../pages/ShopPage'
-import RenderIfDemo from '../../pages/RenderIfDemo'
+import InputArrary from '../../pages/InputArrary'
 
 function App() {
   return (
-    <RenderIfDemo />
+    <InputArrary />
   )
 }
 

@@ -4,11 +4,11 @@ import React from 'react'
 // import Toggle from '../../components/Toggle'
 // import TestSelector from '../../pages/TestSelector'
 // import ShopPage from '../../pages/ShopPage'
-import InputArrary from '../../pages/InputArrary'
+import EditDemo from '../../pages/ConditionalRender/EditDemo'
 
 function App() {
   return (
-    <InputArrary />
+    <EditDemo />
   )
 }
 

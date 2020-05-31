@@ -22,14 +22,13 @@ const EditComponent = (props) => (
   </Button>
 )
 
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? <EitherComponent {...props} />
-    : <Component {...props} />;
+const RenderIf = (props) => {
+  const condition = props.condition || false;
+  const positive = props.then || null;
+  const negative = props.else || null;
 
-const isViewConditionFn = ({ mode = 'view' }) => mode === 'view';
-const withEditContionalRendering = withEither(isViewConditionFn, EditComponent);
-const EditSaveWithConditionalRendering = withEditContionalRendering(SaveComponent);
+  return condition ? positive : negative;
+};
 
 /**
  * https://blog.logrocket.com/conditional-rendering-in-react-c6b0e5af381e/
@@ -46,17 +45,21 @@ function EditDemo() {
     setMode('view')
   }
   const handleEdit = () => setMode('edit')
-
+  const view = mode === 'view'
+  const editComponent = <EditComponent handleEdit={handleEdit} />
+  const saveComponent = <SaveComponent
+    handleChange={handleChange}
+    handleSave={handleSave}
+    text={inputText}
+  />
 
   return (
     <div>
       <p>Text: {text}</p>
-      <EditSaveWithConditionalRendering
-        mode={mode}
-        handleEdit={handleEdit}
-        handleChange={handleChange}
-        handleSave={handleSave}
-        text={inputText}
+      <RenderIf
+        condition={view}
+        then={editComponent}
+        else={saveComponent}
       />
     </div>
   )

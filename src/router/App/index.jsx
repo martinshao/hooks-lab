@@ -4,12 +4,12 @@ import React from 'react'
 // import Toggle from '../../components/Toggle'
 // import TestSelector from '../../pages/TestSelector'
 // import ShopPage from '../../pages/ShopPage'
-// import EditDemo from '../../pages/ConditionalRender/EditDemo'
-import Todo from '../../pages/HOC/Todo'
+import LoginDemo from '../../pages/ConditionalRender/LoginDemo'
+// import Todo from '../../pages/HOC/Todo'
 
 function App() {
   return (
-    <Todo />
+    <LoginDemo />
   )
 }
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import Mock from 'mockjs';
 import { Button, Spin } from 'antd';
 
+import RegionSelect from '../../components/RegionSelect'
+
 // console.log(`%c${}`, "color:gold")
 
 /**
@@ -12,6 +14,19 @@ import { Button, Spin } from 'antd';
  * color: yellowgreen
  * color: #1E8E3E;
  */
+
+const regions = [
+  {
+    label: 'cn-shanghai',
+    value: 'cn-shanghai',
+    region: 'cn-shanghai',
+  },
+  {
+    label: 'cn-beijing',
+    value: 'cn-beijing',
+    region: 'cn-beijing',
+  }
+]
 
 function getUsername() {
   return new Promise(resolve => {
@@ -46,6 +61,7 @@ function index() {
   const [loading, setLoading] = useState(false)
   const [name, setName] = useState('')
   const [polling, isPolling] = useState(false)
+  const [region, setRegion] = useState('')
   useInterval(() => {
     // Your custom logic here
     const fetchData = async () => {
@@ -57,6 +73,8 @@ function index() {
     fetchData()
   }, polling ? 1000 : null);
 
+  const onChange = (region) => setRegion(region)
+
   return (
     <>
       <Spin spinning={loading}>
@@ -66,6 +84,11 @@ function index() {
         <Button onClick={() => isPolling(true)}>start</Button>
         <Button onClick={() => isPolling(false)}>stop</Button>
       </Button.Group>
+      <RegionSelect
+        value={region}
+        dataSource={regions}
+        onChange={onChange}
+      />
     </>
   )
 }

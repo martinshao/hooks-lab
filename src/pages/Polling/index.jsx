@@ -8,11 +8,15 @@ import RegionSelect from '../../components/RegionSelect'
 
 /**
  * console.log(`%c`, '')
- * color:gold
- * color:deepskyblue
- * color:orangered
+ * color: gold
+ * color: khaki
+ * color: orangered
+ * color: lightcoral
+ * color: deepskyblue
  * color: yellowgreen
  * color: #1E8E3E;
+ * color: #FFC440;
+ * color: #D93026;
  */
 
 const regions = [

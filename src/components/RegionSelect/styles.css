@@ -1,0 +1,36 @@
+.region-wrapper {
+  margin: 20px 0;
+}
+
+.title {
+  color: #333333;
+  font-size: 12px;
+  font-family: PingFangSC-Regular;
+}
+
+.region {
+  background: #f7f7f7;
+  border-radius: 18px;
+  display: inline-block;
+  cursor: pointer;
+  color: #657c99;
+  font-size: 13px;
+  padding: 3px 12px;
+  text-decoration: none;
+  font-family: PingFangSC-Regular;
+  margin: 0 8px;
+  border: 0;
+  line-height: 20px;
+  transition: all 350ms ease;
+}
+
+.region:hover {
+  background-color: #657c99;
+  color: #f6f6f6;
+  opacity: .6;
+}
+
+.region.selected {
+  background-color: #657c99;
+  color: #f7f7f7;
+}

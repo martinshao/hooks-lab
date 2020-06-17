@@ -11,14 +11,11 @@ import React from 'react'
 // import LoginDemo from '../../pages/ConditionalRender/LoginDemo'
 // import Polling from '../../pages/UmiHooks/Polling';
 // import Polling from '../../pages/Polling'
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
+import Weather from '../../pages/Weather';
 
 function App() {
-  return (
-    <Header>
-      <h1>邵孤城</h1>
-    </Header>
-  )
+  return <Weather />
 }
 
 export default App;

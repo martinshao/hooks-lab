@@ -16,4 +16,4 @@ export function Header({ children, siteName }) {
 
 export default defaultProps({
   siteName: globalConfig.siteName
-})(Header);
+})(Header)

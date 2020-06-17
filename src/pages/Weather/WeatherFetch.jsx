@@ -1,31 +1,45 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
 import WeatherInfo from './WeatherInfo'
 
-class WeatherFetch extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      temperature: 'N/A',
-      windSpeed: 'N/A',
-    }
-  }
+import { fetch } from '../../store/action/weather';
 
+class WeatherFetch extends Component {
   render() {
-    const { temperature, windSpeed } = this.state
+    const { temperature, windSpeed } = this.props
     return (
       <WeatherInfo temperature={temperature} windSpeed={windSpeed} />
-    )
+    );
   }
 
-  async componentDidMount() {
-    const { data } = await axios.get('/api/weather.json')
-    const { current } = data
-    this.setState({
-      temperature: current.temperature,
-      windSpeed: current.windSpeed
-    })
+  componentDidMount() {
+    console.info(this.props)
+    this.props.fetch()
   }
 }
 
-export default WeatherFetch
+function mapStateToProps(state) {
+  console.info(state)
+  return {
+    temperature: state.weather.temperature,
+    windSpeed: state.weather.windSpeed
+  };
+}
+
+
+
+WeatherFetch.propTypes = {
+  fetch: PropTypes.func,
+  windSpeed: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  temperature: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+}
+
+export default connect(mapStateToProps, { fetch })(WeatherFetch)

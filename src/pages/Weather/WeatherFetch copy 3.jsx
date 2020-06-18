@@ -1,16 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { compose, lifecycle } from 'recompose'
+import PropTypes from 'prop-types'
 
 import WeatherInfo from './WeatherInfo'
 
 import { fetch } from '../../store/actions/weather';
 
-function WeatherFetch({ temperature, windSpeed }) {
-  return (
-    <WeatherInfo temperature={temperature} windSpeed={windSpeed} />
-  )
+class WeatherFetch extends Component {
+  render() {
+    const { temperature, windSpeed } = this.props
+    return (
+      <WeatherInfo temperature={temperature} windSpeed={windSpeed} />
+    );
+  }
+
+  componentDidMount() {
+    console.info(this.props)
+    this.props.fetch()
+  }
 }
 
 function mapStateToProps(state) {
@@ -24,6 +31,7 @@ function mapStateToProps(state) {
 
 
 WeatherFetch.propTypes = {
+  fetch: PropTypes.func,
   windSpeed: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -34,12 +42,4 @@ WeatherFetch.propTypes = {
   ]),
 }
 
-export default compose(
-  connect(mapStateToProps, { fetch }),
-  lifecycle({
-    componentDidMount() {
-      this.props.fetch();
-    }
-  })
-)(WeatherFetch)
-
+export default connect(mapStateToProps, { fetch })(WeatherFetch)

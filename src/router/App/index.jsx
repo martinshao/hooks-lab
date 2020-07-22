@@ -12,10 +12,11 @@ import React from 'react'
 // import Polling from '../../pages/UmiHooks/Polling';
 // import Polling from '../../pages/Polling'
 // import Header from '../../components/Header';
-import Weather from '../../pages/Weather';
+// import Weather from '../../pages/Weather';
+import CallbackDemo from '../../pages/CallbackDemo';
 
 function App() {
-  return <Weather />
+  return <CallbackDemo />
 }
 
 export default App;

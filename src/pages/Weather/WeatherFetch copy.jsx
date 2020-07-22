@@ -19,11 +19,9 @@ class WeatherFetch extends Component {
   }
 
   componentDidMount() {
-    const that = this
-    console.info('WeatherFetch...')
     axios.get('/api/weather.json').then(function (response) {
       const { current } = response.data;
-      that.setState({
+      this.setState({
         temperature: current.temperature,
         windSpeed: current.windSpeed
       })

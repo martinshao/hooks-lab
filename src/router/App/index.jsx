@@ -13,10 +13,12 @@ import React from 'react'
 // import Polling from '../../pages/Polling'
 // import Header from '../../components/Header';
 // import Weather from '../../pages/Weather';
-import CallbackDemo from '../../pages/CallbackDemo';
+// import MemoDemo from '../../pages/MemoDemo';
+// import ParentComponent from '../../components/classComp/comp1/ParentComponent'
+import Memo from '../../optimization/Memo'
 
 function App() {
-  return <CallbackDemo />
+  return <Memo />
 }
 
 export default App;

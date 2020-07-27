@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布订阅模式练习</title>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+</body>
+<script>
+  // const btn = document.querySelector('#btn')
+  // console.info(btn)
+  // btn.addEventListener('click', function () {
+  //   console.info('click one...')
+  // }, false)
+
+  // const elem = document.querySelector('#btn')
+  // let fireEvent = function (element, event) {
+  //   if (document.createEventObject) {
+  //     const evt = document.createEventObject();
+  //     return element.fireEvent('on' + event, evt)
+  //   } else {
+  //     const evt = document.createEvent('Event');
+  //     evt.initEvent(event, true, true);
+  //     return element.dispatchEvent(evt);
+  //   }
+  // }
+  // btn.addEventListener('shout', function (event) {
+  //   console.info('shout')
+  // }, false)
+  // fireEvent(btn, 'shout')
+
+  // class PubSub {
+  //   constructor() {
+  //     this.subscribers = [];
+  //   }
+
+  //   subscribe(topic, callback) {
+  //     let callbacks = this.subscribers[topic];
+  //     if (!callbacks) {
+  //       this.subscribers[topic] = [callback];
+  //     } else {
+  //       callbacks.push(callback);
+  //     }
+  //   }
+
+  //   publish(topic, ...args) {
+  //     let callbacks = this.subscribers[topic] || [];
+  //     callbacks.forEach(callback => callback(...args));
+  //   }
+  // }
+  // function print(param) {
+  //   console.info(`this is ${param}`)
+  // }
+  // // 创建事件调度中心，为订阅者和发布者提供调度服务
+  // let pubSub = new PubSub();
+  // // A订阅了SMS事件（A只关注SMS本身，而不关心谁发布这个事件）
+  // pubSub.subscribe('SMS', console.log);
+  // // B订阅了SMS事件
+  // pubSub.subscribe('SMS', console.log);
+  // pubSub.subscribe('SMS', print);
+  // // C发布了SMS事件（C只关注SMS本身，不关心谁订阅了这个事件）
+  // pubSub.publish('SMS', 'I published `SMS` event');
+
+  // class PubSub {
+  //   constructor() {
+  //     this.events = {};
+  //   }
+
+  //   subscribe(event, fn) {
+  //     if (!this.events[event]) this.events[event] = [];
+
+  //     this.events[event].push(fn);
+  //   }
+
+  //   publish() {
+  //     var event = Array.prototype.shift.call(arguments);
+  //     var fns = this.events[event];
+  //     if (!event || fns.length === 0) return;
+
+  //     for (var i = 0, len = fns.length; i < len; i++) {
+  //       var fn = fns[i];
+  //       fn.apply(this, arguments);
+  //     }
+  //   }
+
+  //   remove(event, fn) {
+  //     var fns = this.events[event];
+  //     if (!fns) return;
+  //     if (!fn) this.events[event] = [];
+
+  //     for (var i = 0, len = fns.length; i < len; i++) {
+  //       var _fn = fns[i];
+  //       if (_fn === fn) {
+  //         fns.splice(i, 1);
+  //       }
+  //     }
+  //   }
+  // }
+
+
+  // 以下为测试部分
+
+  // var pubsub = new PubSub();
+
+  // pubsub.subscribe('eventOne', function () {
+  //   console.log('eventOne');
+  // });
+
+  // function test() {
+  //   console.log('eventOne otherone');
+  // }
+
+  // pubsub.subscribe('eventOne', test);
+
+  // pubsub.subscribe('eventTwo', function (data) {
+  //   console.log(data);
+  // });
+
+  // pubsub.remove('eventOne', test);
+
+  // pubsub.publish('eventOne');
+  // pubsub.publish('eventTwo', {
+  //   message: 'hello'
+  // });
+
+  class ChatAPI {
+
+    constructor() {
+      this.subscribers = [];
+    }
+
+    subscribeToFriendStatus(id, callback) {
+      let callbacks = this.subscribers[id];
+      if (!callbacks) {
+        this.subscribers[id] = [callback];
+      } else {
+        callbacks.push(callback);
+      }
+    }
+
+    unsubscribeFromFriendStatus(id, callback) {
+      const callbacks = this.subscribers[id]
+      if (Array.isArray(callbacks)) {
+        console.info(callbacks.indexOf(callback))
+        this.subscribers[id].splice(callbacks.indexOf(callback), 1)
+      }
+    }
+
+    publish(id, ...args) {
+      let callbacks = this.subscribers[id] || [];
+      callbacks.forEach(callback => callback(...args));
+    }
+  }
+
+  function greet(status) {
+    console.info(`this is ${status}`)
+  }
+
+  const chatAPI = new ChatAPI()
+  chatAPI.subscribeToFriendStatus('martin', greet);
+  chatAPI.subscribeToFriendStatus('july', greet);
+  chatAPI.publish('martin', 'online')
+  chatAPI.publish('july', 'offline')
+</script>
+
+</html>

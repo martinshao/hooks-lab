@@ -15,10 +15,10 @@ import React from 'react'
 // import Weather from '../../pages/Weather';
 // import MemoDemo from '../../pages/MemoDemo';
 // import ParentComponent from '../../components/classComp/comp1/ParentComponent'
-import Memo from '../../optimization/Memo'
+import MemoReducer from '../../optimization/MemoReducer'
 
 function App() {
-  return <Memo />
+  return <MemoReducer />
 }
 
 export default App;

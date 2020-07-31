@@ -1,0 +1,15 @@
+.box {
+  background: #efeaea;
+}
+
+.left {
+  float: left;
+  width: 260px;
+  background: burlywood;
+}
+
+.right {
+  float: left;
+  width: 200px;
+  background: lightblue;
+}

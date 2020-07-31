@@ -15,10 +15,11 @@ import React from 'react'
 // import Weather from '../../pages/Weather';
 // import MemoDemo from '../../pages/MemoDemo';
 // import ParentComponent from '../../components/classComp/comp1/ParentComponent'
-import MemoReducer from '../../optimization/MemoReducer'
+// import MemoReducer from '../../optimization/MemoReducer'
+import ChatRoom from '../../optimization/ChatRoom'
 
 function App() {
-  return <MemoReducer />
+  return <ChatRoom />
 }
 
 export default App;

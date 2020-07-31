@@ -12,11 +12,11 @@ body {
   grid-template-rows: auto;
 }
 
-.box {
+/* .box {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-}
+} */
 
 
 h1 {

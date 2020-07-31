@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 import App from './router/App'
-import ChatAPI from './global'
+import ChatAPI from './global/ChatAPI'
 
 import './index.css'
 import 'antd/dist/antd.css'

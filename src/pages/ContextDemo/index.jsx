@@ -1,51 +1,36 @@
-import React, { useContext, createContext } from 'react';
+import React, { Component, createContext } from 'react'
 
-const themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
+const BatteryContext = createContext()
+
+class Leaf extends Component {
+  static contextType = BatteryContext;
+  render() {
+    const battery = this.context
+    return (
+      <h1>battery: {battery}</h1>
+    )
   }
-};
-
-const ThemeContext = createContext(themes.light);
-
-function ContextDemo() {
-  console.info(useContext(createContext()))
-  return (
-    <ThemeContext.Provider value={themes.dark}>
-      <Toolbar />
-    </ThemeContext.Provider>
-  );
 }
 
-function Toolbar() {
-  return (
-    <div>
-      <ThemedButton />
-    </div>
-  );
+class Middle extends Component {
+  render() {
+    return <Leaf />
+  }
 }
 
-function ThemedButton() {
-  const theme = useContext(ThemeContext);
-  console.info(theme)
-  return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
-    </button>
-  );
+class ContextDemo extends Component {
+  state = {
+    battery: 60
+  }
+  render() {
+    const { battery } = this.state
+    return (
+      <BatteryContext.Provider value={battery}>
+        <button type="button" onClick={() => this.setState(({ battery }) => ({ battery: battery - 1 }))}>Press</button>
+        <Middle />
+      </BatteryContext.Provider>
+    )
+  }
 }
-
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <CardWrapper />
-//     )
-//   }
-// }
 
 export default ContextDemo;

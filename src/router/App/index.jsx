@@ -18,11 +18,13 @@ import React from 'react'
 // import MemoReducer from '../../optimization/MemoReducer'
 // import ChatRoom from '../../optimization/ChatRoom'
 // import Suspense from '../../optimization/Suspense'
-import CallbackDemo from '../../pages/CallbackDemo'
+// import CallbackDemo from '../../pages/CallbackDemo'
+// import ContextDemo from '../../pages/ContextDemo'
+import LazyDemo from '../../optimization/LazyDemo'
 
 
 function App() {
-  return <CallbackDemo />
+  return <LazyDemo />
 }
 
 export default App;

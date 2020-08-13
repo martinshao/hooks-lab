@@ -1,15 +1,14 @@
-import React, { PureComponent } from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 
-export class PrimitiveList extends PureComponent {
-  static propTypes = {
-    value: PropTypes.number,
-  }
+const PrimitiveList = memo(({ value }) => {
+  console.info('%cPrimitiveList is rendering...', 'color: #dcff93')
+  return <div>this is count {value}</div>
+})
 
-  render() {
-    console.info('%cPrimitiveList is rendering...', 'color: #dcff93')
-    return <div>this is count {this.props.value}</div>
-  }
+PrimitiveList.propTypes = {
+  value: PropTypes.number,
 }
 
 export default PrimitiveList
+

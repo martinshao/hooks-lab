@@ -16,10 +16,13 @@ import React from 'react'
 // import MemoDemo from '../../pages/MemoDemo';
 // import ParentComponent from '../../components/classComp/comp1/ParentComponent'
 // import MemoReducer from '../../optimization/MemoReducer'
-import ChatRoom from '../../optimization/ChatRoom'
+// import ChatRoom from '../../optimization/ChatRoom'
+// import Suspense from '../../optimization/Suspense'
+import CallbackDemo from '../../pages/CallbackDemo'
+
 
 function App() {
-  return <ChatRoom />
+  return <CallbackDemo />
 }
 
 export default App;

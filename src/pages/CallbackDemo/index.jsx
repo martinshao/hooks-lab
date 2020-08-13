@@ -1,21 +1,28 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import List from './List'
+import PureRender from './PureRender'
 
 function CallbackDemo() {
-  console.info('CallbackDemo...starting')
+  // console.info('CallbackDemo...starting')
   const [number, setNumber] = useState(1)
   const [dark, setDark] = useState(false)
 
-  const getItems = useCallback((incrementor) => {
+  // const getItems = useCallback((incrementor) => {
+  //   console.info('useCallback running...', incrementor)
+  //   return [number, number + 1, number + 2]
+  // }, [number])
+
+  const getItems = (incrementor) => {
     console.info('useCallback running...', incrementor)
     return [number, number + 1, number + 2]
-  }, [number])
+  }
 
   const theme = {
     backgroundColor: dark ? '#333' : '#FFF',
     color: dark ? '#FFF' : '#333'
   }
-  console.info('CallbackDemo...ending')
+  // console.info('CallbackDemo...ending')
+  console.info('%cCallbackDemo is rendering...', 'color: #dcff93')
   return (
     <div style={theme}>
       <input
@@ -27,6 +34,7 @@ function CallbackDemo() {
         Toggle theme
       </button>
       <List getItems={getItems} />
+      <PureRender />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState, useEffect, useCallback, PureComponent } from 'react'
+import React, { useRef, useState, useEffect, PureComponent } from 'react'
 import { Button } from 'antd'
 
 
@@ -23,22 +23,10 @@ class Counter extends PureComponent {
   }
 }
 
-function UseRefDemo() {
-  const [count, setCount] = useState(0)
-  const [clickCount, setClickCount] = useState(0)
-  const counterRef = useRef()
+function useCount(defaultCount) {
+  const [count, setCount] = useState(defaultCount)
   const it = useRef()
 
-  const double = useMemo(() => count * 2, [count === 3])
-
-  const onClick = useCallback(
-    () => {
-      console.info('Click...')
-      setClickCount(cc => cc + 1)
-      counterRef.current.speak()
-    },
-    [counterRef],
-  )
 
   useEffect(() => {
     it.current = setInterval(() => {
@@ -52,17 +40,21 @@ function UseRefDemo() {
     }
   })
 
+  return [count, setCount]
+}
+
+function UseCustomer() {
+  const [count, setCount] = useCount(0)
   return (
     <>
       <Button
         onClick={() => setCount(count + 1)}
       >
-        count: ({count}),
-        double: ({double})
+        count: ({count})
       </Button>
-      <Counter ref={counterRef} count={double} clickCount={clickCount} onClick={onClick} />
+      <Counter count={count} />
     </>
   )
 }
 
-export default UseRefDemo
+export default UseCustomer

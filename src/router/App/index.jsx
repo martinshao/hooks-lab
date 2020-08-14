@@ -23,10 +23,10 @@ import React from 'react'
 // import LazyDemo from '../../optimization/LazyDemo'
 // import Foo from '../../design/hooks/Foo'
 // import Foo from '../../design/hoc/Foo'
-import UseMemoDemo from '../../hooks/UseMemoDemo'
+import TodoLists from '../../pages/TodoLists'
 
 function App() {
-  return <UseMemoDemo />
+  return <TodoLists />
 }
 
 export default App;

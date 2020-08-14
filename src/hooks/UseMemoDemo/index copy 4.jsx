@@ -11,7 +11,6 @@ const Counter = memo(function (props) {
 
 function UseMemoDemo() {
   const [count, setCount] = useState(0)
-  const [clickCount, setClickCount] = useState(0)
 
   const double = useMemo(() => count * 2, [count === 3])
 
@@ -25,7 +24,6 @@ function UseMemoDemo() {
   const onClick = useCallback(
     () => {
       console.info('Click...')
-      setClickCount(cc => cc+1)
     },
     [],
   )
@@ -41,7 +39,7 @@ function UseMemoDemo() {
         count: ({count}),
         double: ({double})
       </Button>
-      <Counter count={double} clickCount={clickCount} onClick={onClick} />
+      <Counter count={double} onClick={onClick} />
     </>
   )
 }

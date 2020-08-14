@@ -20,11 +20,13 @@ import React from 'react'
 // import Suspense from '../../optimization/Suspense'
 // import CallbackDemo from '../../pages/CallbackDemo'
 // import ContextDemo from '../../pages/ContextDemo'
-import LazyDemo from '../../optimization/LazyDemo'
-
+// import LazyDemo from '../../optimization/LazyDemo'
+// import Foo from '../../design/hooks/Foo'
+// import Foo from '../../design/hoc/Foo'
+import UseMemoDemo from '../../hooks/UseMemoDemo'
 
 function App() {
-  return <LazyDemo />
+  return <UseMemoDemo />
 }
 
 export default App;

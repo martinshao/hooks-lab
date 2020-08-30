@@ -4,13 +4,13 @@ body {
   padding: 3em;
   place-items: center;
 }
-
+/* 
 .boxes {
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(2, minmax(350px, 1fr));
   grid-template-rows: auto;
-}
+} */
 
 /* .box {
   display: flex;
@@ -19,7 +19,7 @@ body {
 } */
 
 
-h1 {
+/* h1 {
   font-size: 20px;
   margin: 0 0 1rem 0;
 }
@@ -52,4 +52,4 @@ ol li {
   background: white;
   border: 1px solid hotpink;
   color: #333;
-}
+} */

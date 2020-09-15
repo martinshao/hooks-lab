@@ -23,11 +23,11 @@ import React from 'react'
 // import LazyDemo from '../../optimization/LazyDemo'
 // import Foo from '../../design/hooks/Foo'
 // import Foo from '../../design/hoc/Foo'
-// import TodoLists from '../../pages/TodoLists'
-import PortalDemo from '../../pages/PortalDemo'
+import TodoLists from '../../pages/TodoLists'
+// import PortalDemo from '../../pages/PortalDemo'
 
 function App() {
-  return <PortalDemo />
+  return <TodoLists />
 }
 
 export default App;

@@ -89,3 +89,8 @@ input[type="text"]:focus {
   font-size: 30px;
   color: #cc9a9a;
 }
+
+.incorrect:before {
+  content: '\2716';
+  color: #b20610;
+}

@@ -88,7 +88,7 @@ const TodoItem = memo(
           checked={complete}
         />
         <label className={complete ? 'complete' : ''}>{text}</label>
-        <button onClick={onRemove}>&#xd7;</button>
+        <button className="incorrect" onClick={onRemove}></button>
       </li>
     )
   }

@@ -29,7 +29,7 @@ function UseRefDemo() {
   const counterRef = useRef()
   const it = useRef()
 
-  const double = useMemo(() => count * 2, [count === 3])
+  const double = useMemo(() => count * 2, [count])
 
   const onClick = useCallback(
     () => {

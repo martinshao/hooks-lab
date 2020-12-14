@@ -1,68 +1,29 @@
-import React, { useRef, useMemo, useState, useEffect, useCallback, PureComponent } from 'react'
-import { Button } from 'antd'
+import React, { useEffect, useRef, useState } from 'react'
 
-
-// const Counter = memo(function (props) {
-//   console.info('Counter is rendering...')
-//   return (
-//     <div onClick={props.onClick}>Counter Count: {props.count}</div>
-//   )
-// })
-
-class Counter extends PureComponent {
-
-  speak = () => {
-    console.info('Counter speak...')
-  }
-
-  render() {
-    console.info('Counter is rendering...')
-    return (
-      <div onClick={this.props.onClick}>Counter Count: {this.props.count}</div>
-    )
-  }
-}
-
-function UseRefDemo() {
-  const [count, setCount] = useState(0)
-  const [clickCount, setClickCount] = useState(0)
-  const counterRef = useRef()
-  const it = useRef()
-
-  const double = useMemo(() => count * 2, [count])
-
-  const onClick = useCallback(
-    () => {
-      console.info('Click...')
-      setClickCount(cc => cc + 1)
-      counterRef.current.speak()
-    },
-    [counterRef],
-  )
+export default function UseRefDemo() {
+  const [temp, setTemp] = useState(5);
+  const tempRef = useRef(temp)
 
   useEffect(() => {
-    it.current = setInterval(() => {
-      setCount(count => count+1)
-    }, 1000)
-  }, [])
+    tempRef.current = temp
+  }, [temp])
 
-  useEffect(() => {
-    if(count >= 10) {
-      clearInterval(it.current)
-    }
-  })
-
+  const log = () => {
+    console.info('log...')
+    setTimeout(() => {
+      console.log("3 秒前 temp = 5，现在 temp =", temp);
+    }, 3000);
+  };
+  console.info('render...')
   return (
-    <>
-      <Button
-        onClick={() => setCount(count + 1)}
-      >
-        count: ({count}),
-        double: ({double})
-      </Button>
-      <Counter ref={counterRef} count={double} clickCount={clickCount} onClick={onClick} />
-    </>
-  )
+    <button
+      onClick={() => {
+        setTemp(3);
+        log();
+        // 3 秒前 temp = 5，现在 temp = 5
+      }}
+    >
+      xyz
+    </button>
+  );
 }
-
-export default UseRefDemo

@@ -5,7 +5,6 @@ import { Button } from 'antd'
 function UseEffectDemo() {
 
   const [count, setCount] = useState(0)
-  const [positions, setPositions] = useState({ x: 0, y: 0 })
   const [size, setSize] = useState({
     width: document.documentElement.clientWidth,
     height: document.documentElement.clientHeight
@@ -17,20 +16,6 @@ function UseEffectDemo() {
       height: document.documentElement.clientHeight
     })
   }
-
-  useEffect(() => {
-    console.info('add effect', positions.x)
-    const updateMouse = (e) => {
-      console.info('inner')
-      setPositions({ x: e.clientX, y: e.clientY })
-    }
-
-    document.addEventListener('click', updateMouse)
-    return () => {
-      console.info('remove effect', positions.x)
-      document.removeEventListener('click', updateMouse)
-    }
-  })
 
   useEffect(() => {
     console.info('count useEffect...')
@@ -66,11 +51,6 @@ function UseEffectDemo() {
         count % 2
           ? <span id="size">size: {width}x{height}</span>
           : <p id="size">size: {width}x{height}</p>
-      }
-      {
-        <div>
-          <p>X : {positions.x}, Y : {positions.y}</p>
-        </div>
       }
     </>
   )

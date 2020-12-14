@@ -25,10 +25,10 @@ import React from 'react'
 // import Foo from '../../design/hoc/Foo'
 // import TodoLists from '../../pages/TodoLists'
 // import PortalDemo from '../../pages/PortalDemo'
-import UseCallbackDemo from '../../hooks/UseCallbackDemo'
+import UseAsyncDemo from '../../hooks/UseAsyncDemo'
 
 function App() {
-  return <UseCallbackDemo />
+  return <UseAsyncDemo />
 }
 
 export default App;

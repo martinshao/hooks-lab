@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import useLockBodyScroll from "../useLockBodyScroll"
 
+import './styles.scss'
+
 
 function UseLockBodyScrollDemo() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -51,8 +53,8 @@ const Content = () => {
     'funny'
   ]
 
-  const images = terms.map(term => (
-    <img src={`https://source.unsplash.com/random/800x200?${term}`} alt={term}/>
+  const images = terms.map((term, i) => (
+    <img key={i} src={`https://source.unsplash.com/random/800x200?${term}`} alt={term}/>
   ))
   return <div className="images">{images}</div>
 }

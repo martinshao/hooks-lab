@@ -25,10 +25,10 @@ import React from 'react'
 // import Foo from '../../design/hoc/Foo'
 // import TodoLists from '../../pages/TodoLists'
 // import PortalDemo from '../../pages/PortalDemo'
-import UseAsyncDemo from '../../hooks/UseAsyncDemo'
+import UseSpringDemo from '../../hooks/UseSpringDemo'
 
 function App() {
-  return <UseAsyncDemo />
+  return <UseSpringDemo />
 }
 
 export default App;

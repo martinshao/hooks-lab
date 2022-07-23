@@ -25,10 +25,19 @@ import React from 'react'
 // import Foo from '../../design/hoc/Foo'
 // import TodoLists from '../../pages/TodoLists'
 // import PortalDemo from '../../pages/PortalDemo'
-import UsePreviosDemo from '../../hooks/UsePreviosDemo'
+// import UsePreviosDemo from '../../hooks/UsePreviosDemo'
+// import ReactQueryDemo from '../../handle-rest/ReactQueryDemo'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import UseClickAny from '../../components/UseClickAny'
+
+const queryClient = new QueryClient()
 
 function App() {
-  return <UsePreviosDemo />
+  return (
+    <QueryClientProvider client={queryClient}>
+      <UseClickAny />
+    </QueryClientProvider>
+  )
 }
 
 export default App;
